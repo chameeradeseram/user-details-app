@@ -1,4 +1,3 @@
-// DataFetchingComponent.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from '../SearchBar/SearchBar';
@@ -15,6 +14,7 @@ const DataFetchingComponent = () => {
   const [isSorted, setIsSorted] = useState(false);
 
   useEffect(() => {
+    //get 8 user details from the API
     const fetchData = async () => {
       try {
         const responses = await Promise.all(Array.from({ length: 8 }, () => axios.get('https://randomuser.me/api/')));
@@ -31,6 +31,7 @@ const DataFetchingComponent = () => {
     fetchData();
   }, []);
 
+  //list down users according to the input(user name) in the search bar
   const handleSearch = (term) => {
     if (term === '') {
       setFilteredData(data);
@@ -48,6 +49,7 @@ const DataFetchingComponent = () => {
     handleSearch(term);
   };
 
+  //sort users by the first name
   const sortData = () => {
     const sortedData = [...filteredData];
     sortedData.sort((a, b) => a.name.first.localeCompare(b.name.first));
@@ -74,7 +76,7 @@ const DataFetchingComponent = () => {
       </div>
       <div className="search-sort-container">
         <div className="search-bar-div">
-          <SearchBar searchTerm={searchTerm} onSearch={handleSearch} onChange={handleChange} />
+          <SearchBar searchTerm={searchTerm} onChange={handleChange} />
         </div>
         <div className="sort-button-div">
           <SortButton isSorted={isSorted} onClick={handleSortClick} />

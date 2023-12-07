@@ -10,6 +10,7 @@ const List = ({ data, searchTerm }) => {
     const [editedCity, setEditedCity] = useState('');
     const [editedState, setEditedState] = useState('');
     
+    //edit user address. city and state separately
     const handleEditClick = (index, currentCity, currentState) => {
         setEditableIndex(index);
         setEditedCity(currentCity);
@@ -25,14 +26,17 @@ const List = ({ data, searchTerm }) => {
         newData[index].location.state = editedState;    
     };
     
+    //get new value for city
     const handleCityChange = (e) => {
         setEditedCity(e.target.value);
     };
     
+    //get new value for state
     const handleStateChange = (e) => {
         setEditedState(e.target.value);
     };
     
+    //edit icon and save icon to change the address
     const renderEditIcon = (index, currentCity, currentState) => {
         return (
             <IconButton
