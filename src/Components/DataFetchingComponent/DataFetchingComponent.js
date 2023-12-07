@@ -53,7 +53,7 @@ const DataFetchingComponent = () => {
   const sortData = () => {
     const sortedData = [...filteredData];
     sortedData.sort((a, b) => a.name.first.localeCompare(b.name.first));
-    setFilteredData(isSorted ? sortedData.reverse() : sortedData);
+    setFilteredData(isSorted ? sortedData.toReversed() : sortedData);
   };
 
   const handleSortClick = () => {
