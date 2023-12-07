@@ -1,0 +1,8 @@
+.MuiIconButton-root:hover {
+    background-color: #000000 !important;
+}
+
+.MuiIconButton-root:hover .MuiSvgIcon-root {
+    fill: #ffffff;
+}
+  
