@@ -1,10 +1,9 @@
-// SearchBar.js
 import React from 'react';
 import { InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search'
 import './SearchBar.css';
 
-const SearchBar = ({ searchTerm, onSearch, onChange }) => {
+const SearchBar = ({ searchTerm, onChange }) => {
   return (    
     <TextField
       id='outlined'
@@ -20,7 +19,6 @@ const SearchBar = ({ searchTerm, onSearch, onChange }) => {
       }}
       value={searchTerm}
       onChange={onChange}
-      onSearch={onSearch}
     />      
   );
 };

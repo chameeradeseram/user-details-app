@@ -4,7 +4,7 @@ import DataFetchingComponent from './Components/DataFetchingComponent/DataFetchi
 
 function App() {
   return (
-     <div classname='App'>
+     <div className='App'>
        <DataFetchingComponent />
      </div>
 )}
