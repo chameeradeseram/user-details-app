@@ -1,11 +1,11 @@
 import React from 'react'
 import './App.css';
-import DataFetchingComponent from './Components/DataFetchingComponent/DataFetchingComponent'
+import ListContainer from './Components/ListContainer/ListContainer'
 
 function App() {
   return (
      <div className='App'>
-       <DataFetchingComponent />
+       <ListContainer/>
      </div>
 )}
 

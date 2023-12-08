@@ -3,9 +3,9 @@ import axios from 'axios';
 import SearchBar from '../SearchBar/SearchBar';
 import List from '../ListComponent/List';
 import SortButton from '../SortButton/SortButton';
-import './DataFetchingComponent.css';
+import './ListContainer.css';
 
-const DataFetchingComponent = () => {
+const ListContainer = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,10 +17,9 @@ const DataFetchingComponent = () => {
     //get 8 user details from the API
     const fetchData = async () => {
       try {
-        const responses = await Promise.all(Array.from({ length: 8 }, () => axios.get('https://randomuser.me/api/')));
-        const selectedPeopleDetails = responses.map((response) => response.data.results[0]);
-        setData(selectedPeopleDetails);
-        setFilteredData(selectedPeopleDetails);
+        const responses = await axios.get('https://randomuser.me/api?results=8');
+        setData(responses.data.results);
+        setFilteredData(responses.data.results);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -89,4 +88,4 @@ const DataFetchingComponent = () => {
   );
 };
 
-export default DataFetchingComponent;
+export default ListContainer;
